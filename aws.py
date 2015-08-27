@@ -24,7 +24,7 @@ def parse_subtitle(instance):
 def pick_result_field(instance, fieldname):
   return {
     'priv': getattr(instance, 'private_ip_address', ''),
-    'pub' : getattr(instance, 'public_ip_address', ''),
+    'pub' : getattr(instance, 'ip_address', ''),
     'ami' : getattr(instance, 'image_id', ''),
     'id'  : getattr(instance, 'id', ''),
     ''    : getattr(instance, 'private_ip_address', '')
