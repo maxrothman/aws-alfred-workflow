@@ -33,7 +33,7 @@ def get_instances():
     instances = ec2.get_only_instances()
     pickle.dump(instances, open(CACHE_FILE, 'w'), pickle.HIGHEST_PROTOCOL)
   
-  return pickle.load(CACHE_FILE)
+  return pickle.load(open(CACHE_FILE))
 
 
 fb = Feedback()
