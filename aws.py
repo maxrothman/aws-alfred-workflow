@@ -5,6 +5,7 @@ A collection of commands used in this workflow
 import json, click, sys, time, uuid, os, pickle
 from datetime import datetime
 from numbers import Number
+from botocore.exceptions import ClientError
 
 EXPIRATION_WINDOW = 2    #seconds
 CACHE_DIR = 'caches'
@@ -74,30 +75,32 @@ def prompt_for_mfa(profile, token):
   Prompt a user for their MFA token, retrieve temporary credentials,
   store them in the cache, then pass them to the next stage
   """
-  #TODO; once they begin typing, switch to an invalid "continue" item
-  #TODO: if token is wrong, switch to an invalid "invalid token" item
-  temp_creds = get_temp_creds(profile, token)
-  if temp_creds is None:
-    return
-
-  update_creds_cache(profile, temp_creds)
-  click.echo(json.dumps({
-    "items": [{
-        "title": "Continue",
-        "arg": "PLACEHOLDER",   #If "arg" is not set, the option will not be selectable
-    }]
-  }))
+  if len(token) < 6:
+    click.echo(json.dumps({'items': [{'title': '...', 'valid': False}]}))
+  elif len(token) > 6:
+    click.echo(json.dumps({'items': [{'title': 'Token too long!', 'valid': False}]}))
+  else:
+    try:
+      temp_creds = get_temp_creds(profile, token)
+    except ClientError:
+      click.echo(json.dumps({'items': [{'title': 'Invalid token!', 'valid': False}]}))
+    except:
+      click.echo(json.dumps({'items': [{'title': 'Unexpected error!', 'valid': False}]}))
+    else:
+      update_creds_cache(profile, temp_creds)
+      click.echo(json.dumps({
+        "items": [{
+            "title": "Continue",
+            "arg": "PLACEHOLDER",   #If "arg" is not set, the option will not be selectable
+        }]
+      }))
 
 
 def get_temp_creds(profile, token):
   """Use STS to retrieve temporary credentials for <profile>"""
   from boto3 import Session   #Late import because importing boto3 is slow
 
-  if len(token) != 6:
-    return None
-
   config = get_boto_config()[profile]
-
   hub_client = Session(profile_name=config['source_profile']).client('sts')
 
   response = hub_client.assume_role(
@@ -344,7 +347,6 @@ if __name__ == '__main__':
 
 #TODO:
 # - hooks to jump to any stage in the pipeline
-# - more feedback while doing mfa (error, too short, etc.)
 # - parameterize details (e.g. title/subtitle fields)
 # - performance
 # - add fuzzy matching
