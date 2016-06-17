@@ -8,6 +8,19 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>04C0B3B7-C39D-49DF-A47B-7BD992788E42</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>700073BE-FB3C-4682-BF43-87347C214065</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>0D94BA25-5D84-425E-A7AD-691B3A72D5BF</key>
 		<array>
 			<dict>
@@ -60,19 +73,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>541D633F-45E6-4D3D-8E1A-FF5E8EB3E7A0</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>700073BE-FB3C-4682-BF43-87347C214065</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>5A7232DF-DA83-49DC-A7D9-D2D0A004E3DF</key>
 		<array>
 			<dict>
@@ -110,7 +110,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>541D633F-45E6-4D3D-8E1A-FF5E8EB3E7A0</string>
+				<string>04C0B3B7-C39D-49DF-A47B-7BD992788E42</string>
 				<key>modifiers</key>
 				<integer>131072</integer>
 				<key>modifiersubtext</key>
@@ -182,7 +182,18 @@
 			</dict>
 		</array>
 		<key>8CA709ED-8543-485C-A51A-EE0684447ACE</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5A7232DF-DA83-49DC-A7D9-D2D0A004E3DF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>C537E912-1A5C-498F-BF80-680759E20F23</key>
 		<array>
 			<dict>
@@ -260,51 +271,6 @@
 	<key>objects</key>
 	<array>
 		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>awsdefault</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>query=$1
-
-echo -n $query</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>AWS with default profile</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>8CA709ED-8543-485C-A51A-EE0684447ACE</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -334,45 +300,23 @@ echo -n $query</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
 				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>keyword</key>
-				<string>aws</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Fetching profiles...</string>
-				<key>script</key>
-				<string>./local-python aws.py get_profiles</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>profiles.py</string>
+				<string>lastaws</string>
 				<key>subtext</key>
-				<string>Search for AWS instances</string>
-				<key>title</key>
-				<string>aws</string>
-				<key>type</key>
-				<integer>0</integer>
+				<string>Search for instances with the last-used profile</string>
+				<key>text</key>
+				<string>lastaws</string>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>F066C7EB-E38C-4F2F-B265-FD64397C2E7C</string>
+			<string>8CA709ED-8543-485C-A51A-EE0684447ACE</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -382,7 +326,7 @@ echo -n $query</string>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>0</integer>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -394,7 +338,7 @@ echo -n $query</string>
 				<key>runningsubtext</key>
 				<string>searching...</string>
 				<key>script</key>
-				<string>./local-python aws.py search_for_instances --profile="$profile" "{query}"</string>
+				<string>./local-python aws.py search_for_instances --profile="$(cat caches/last-profile.cache)" '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -440,7 +384,7 @@ echo -n $query</string>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>0</integer>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -452,7 +396,7 @@ echo -n $query</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./local-python aws.py prompt_for_mfa "$profile" "{query}"</string>
+				<string>./local-python aws.py prompt_for_mfa "$(cat caches/last-profile.cache)" '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -464,7 +408,7 @@ echo -n $query</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -481,7 +425,7 @@ echo -n $query</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./local-python aws.py check_profile "$profile"
+				<string>./local-python aws.py check_profile "$(cat caches/last-profile.cache)"
 echo $?</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -530,24 +474,6 @@ echo $?</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>variables</key>
-				<dict>
-					<key>profile</key>
-					<string>{query}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>7AAD4267-AB0E-4066-9E3C-E82750829310</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>inputstring</key>
 				<string></string>
 				<key>matchcasesensitive</key>
@@ -573,6 +499,8 @@ echo $?</string>
 				<integer>1</integer>
 				<key>escaping</key>
 				<integer>0</integer>
+				<key>keyword</key>
+				<string>outputaws</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -584,15 +512,15 @@ echo $?</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./local-python aws.py filter_output_fields "$output_fields" '{query}'</string>
+				<string>./local-python aws.py filter_output_fields "$(cat caches/last-output.cache)" '{query}'</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Select output field on last selection</string>
 				<key>title</key>
-				<string></string>
+				<string>outputaws</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -608,20 +536,91 @@ echo $?</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>echo -n '{query}' &gt; caches/last-output.cache</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
 				<string></string>
-				<key>variables</key>
-				<dict>
-					<key>output_fields</key>
-					<string>{query}</string>
-				</dict>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>541D633F-45E6-4D3D-8E1A-FF5E8EB3E7A0</string>
+			<string>04C0B3B7-C39D-49DF-A47B-7BD992788E42</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>aws</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fetching profiles...</string>
+				<key>script</key>
+				<string>./local-python aws.py get_profiles</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>profiles.py</string>
+				<key>subtext</key>
+				<string>Search for AWS instances</string>
+				<key>title</key>
+				<string>aws</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F066C7EB-E38C-4F2F-B265-FD64397C2E7C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>echo -n '{query}' &gt; caches/last-profile.cache</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7AAD4267-AB0E-4066-9E3C-E82750829310</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -772,6 +771,15 @@ EOF</string>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>04C0B3B7-C39D-49DF-A47B-7BD992788E42</key>
+		<dict>
+			<key>note</key>
+			<string>Save output fields to caches/last-output.cache</string>
+			<key>xpos</key>
+			<integer>1360</integer>
+			<key>ypos</key>
+			<integer>350</integer>
+		</dict>
 		<key>0D94BA25-5D84-425E-A7AD-691B3A72D5BF</key>
 		<dict>
 			<key>xpos</key>
@@ -793,7 +801,7 @@ EOF</string>
 			<key>note</key>
 			<string>If the creds are valid or the profile doesn't use an MFA...</string>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>630</integer>
 			<key>ypos</key>
 			<integer>130</integer>
 		</dict>
@@ -806,19 +814,12 @@ EOF</string>
 			<key>ypos</key>
 			<integer>750</integer>
 		</dict>
-		<key>541D633F-45E6-4D3D-8E1A-FF5E8EB3E7A0</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1180</integer>
-			<key>ypos</key>
-			<integer>380</integer>
-		</dict>
 		<key>5A7232DF-DA83-49DC-A7D9-D2D0A004E3DF</key>
 		<dict>
 			<key>note</key>
 			<string>Check if the profile needs MFA, and if so, check temporary creds validity</string>
 			<key>xpos</key>
-			<integer>260</integer>
+			<integer>430</integer>
 			<key>ypos</key>
 			<integer>270</integer>
 		</dict>
@@ -827,7 +828,7 @@ EOF</string>
 			<key>note</key>
 			<string>Default output if private IP</string>
 			<key>xpos</key>
-			<integer>990</integer>
+			<integer>1160</integer>
 			<key>ypos</key>
 			<integer>270</integer>
 		</dict>
@@ -836,7 +837,7 @@ EOF</string>
 			<key>note</key>
 			<string>Select output field</string>
 			<key>xpos</key>
-			<integer>1250</integer>
+			<integer>1510</integer>
 			<key>ypos</key>
 			<integer>350</integer>
 		</dict>
@@ -849,29 +850,30 @@ EOF</string>
 		</dict>
 		<key>7AAD4267-AB0E-4066-9E3C-E82750829310</key>
 		<dict>
+			<key>note</key>
+			<string>Save profile to caches/last-profile.cache</string>
 			<key>xpos</key>
-			<integer>180</integer>
+			<integer>220</integer>
 			<key>ypos</key>
-			<integer>300</integer>
+			<integer>370</integer>
 		</dict>
 		<key>8B20C92E-D57A-4595-B05A-317524AC1F49</key>
 		<dict>
 			<key>note</key>
 			<string>Eat the output of the previous command, the next one only uses "profile"</string>
 			<key>xpos</key>
-			<integer>890</integer>
+			<integer>1060</integer>
 			<key>ypos</key>
 			<integer>300</integer>
 		</dict>
 		<key>8CA709ED-8543-485C-A51A-EE0684447ACE</key>
 		<dict>
 			<key>note</key>
-			<string>Use default profile, go straight to searching if no MFA needed
-Runs profile check</string>
+			<string>Use default profile</string>
 			<key>xpos</key>
-			<integer>10</integer>
+			<integer>30</integer>
 			<key>ypos</key>
-			<integer>50</integer>
+			<integer>180</integer>
 		</dict>
 		<key>9CD7AD6F-11C7-4846-B58D-4EE499E98BF5</key>
 		<dict>
@@ -885,7 +887,7 @@ Runs profile check</string>
 			<key>note</key>
 			<string>If the creds are invalid...</string>
 			<key>xpos</key>
-			<integer>460</integer>
+			<integer>630</integer>
 			<key>ypos</key>
 			<integer>300</integer>
 		</dict>
@@ -894,7 +896,7 @@ Runs profile check</string>
 			<key>note</key>
 			<string>Prompt user for MFA token and store it, then pass temp_creds along</string>
 			<key>xpos</key>
-			<integer>660</integer>
+			<integer>830</integer>
 			<key>ypos</key>
 			<integer>270</integer>
 		</dict>
@@ -903,14 +905,14 @@ Runs profile check</string>
 			<key>note</key>
 			<string>Eat the output of the previous command, the next one only uses "profile"</string>
 			<key>xpos</key>
-			<integer>570</integer>
+			<integer>740</integer>
 			<key>ypos</key>
 			<integer>300</integer>
 		</dict>
 		<key>E18113BA-518D-4D37-A75A-A37155C55495</key>
 		<dict>
 			<key>xpos</key>
-			<integer>730</integer>
+			<integer>900</integer>
 			<key>ypos</key>
 			<integer>130</integer>
 		</dict>
@@ -919,14 +921,14 @@ Runs profile check</string>
 			<key>note</key>
 			<string>Choose profile</string>
 			<key>xpos</key>
-			<integer>10</integer>
+			<integer>30</integer>
 			<key>ypos</key>
-			<integer>270</integer>
+			<integer>370</integer>
 		</dict>
 		<key>F810721F-E252-454D-914E-5928E3738669</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1430</integer>
+			<integer>1690</integer>
 			<key>ypos</key>
 			<integer>270</integer>
 		</dict>

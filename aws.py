@@ -52,7 +52,7 @@ def check_profile(profile):
   If an MFA is neccessary for <profile> but the cached temporary credentials are expired, exit with status 1
   If an MFA is required for <profile> and the cached temporary credentials are still valid, exit with status 0
   """
-  config = get_boto_config([profile])
+  config = get_boto_config()[profile]
 
   if 'role_arn' not in config:
     sys.exit(2) #No MFA necessary, go straight to search
@@ -346,7 +346,5 @@ if __name__ == '__main__':
   cli()
 
 #TODO:
-# - hooks to jump to any stage in the pipeline
 # - parameterize details (e.g. title/subtitle fields)
-# - performance
 # - add fuzzy matching
