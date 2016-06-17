@@ -271,6 +271,27 @@
 	<key>objects</key>
 	<array>
 		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>lastaws</string>
+				<key>subtext</key>
+				<string>Search for instances with the last-used profile</string>
+				<key>text</key>
+				<string>lastaws</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>8CA709ED-8543-485C-A51A-EE0684447ACE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -294,27 +315,6 @@
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
 			<string>189C0B43-6E52-46E8-AD86-64D1CD1C21D0</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>lastaws</string>
-				<key>subtext</key>
-				<string>Search for instances with the last-used profile</string>
-				<key>text</key>
-				<string>lastaws</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>8CA709ED-8543-485C-A51A-EE0684447ACE</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -350,7 +350,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -373,47 +373,6 @@
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>F810721F-E252-454D-914E-5928E3738669</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>./local-python aws.py prompt_for_mfa "$(cat caches/last-profile.cache)" '{query}'</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>Enter MFA token</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>C8FC6D41-80F0-4625-BF31-E0CFFD794091</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -459,36 +418,43 @@ echo $?</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>CFB54447-EBF3-46AD-820F-37111215A43A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>inputstring</key>
-				<string></string>
-				<key>matchcasesensitive</key>
+				<key>alfredfiltersresults</key>
 				<false/>
-				<key>matchmode</key>
-				<integer>2</integer>
-				<key>matchstring</key>
-				<string>1</string>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./local-python aws.py prompt_for_mfa "$(cat caches/last-profile.cache)" '{query}'</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Enter MFA token</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>C537E912-1A5C-498F-BF80-680759E20F23</string>
+			<string>C8FC6D41-80F0-4625-BF31-E0CFFD794091</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -602,6 +568,21 @@ echo $?</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>CFB54447-EBF3-46AD-820F-37111215A43A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -621,6 +602,25 @@ echo $?</string>
 			<string>7AAD4267-AB0E-4066-9E3C-E82750829310</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string></string>
+				<key>matchcasesensitive</key>
+				<false/>
+				<key>matchmode</key>
+				<integer>2</integer>
+				<key>matchstring</key>
+				<string>1</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>C537E912-1A5C-498F-BF80-680759E20F23</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -803,7 +803,7 @@ EOF</string>
 			<key>xpos</key>
 			<integer>630</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>220</integer>
 		</dict>
 		<key>3E394291-0A4A-42B7-8B91-392AD55D05C5</key>
 		<dict>
@@ -889,7 +889,7 @@ EOF</string>
 			<key>xpos</key>
 			<integer>630</integer>
 			<key>ypos</key>
-			<integer>300</integer>
+			<integer>370</integer>
 		</dict>
 		<key>C8FC6D41-80F0-4625-BF31-E0CFFD794091</key>
 		<dict>
@@ -898,7 +898,7 @@ EOF</string>
 			<key>xpos</key>
 			<integer>830</integer>
 			<key>ypos</key>
-			<integer>270</integer>
+			<integer>340</integer>
 		</dict>
 		<key>CFB54447-EBF3-46AD-820F-37111215A43A</key>
 		<dict>
@@ -907,14 +907,14 @@ EOF</string>
 			<key>xpos</key>
 			<integer>740</integer>
 			<key>ypos</key>
-			<integer>300</integer>
+			<integer>370</integer>
 		</dict>
 		<key>E18113BA-518D-4D37-A75A-A37155C55495</key>
 		<dict>
 			<key>xpos</key>
 			<integer>900</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>220</integer>
 		</dict>
 		<key>F066C7EB-E38C-4F2F-B265-FD64397C2E7C</key>
 		<dict>

@@ -2,17 +2,42 @@
 A collection of commands used in this workflow
 """
 
-import json, click, sys, time, uuid, os, pickle
+import json, sys, time, uuid, os, pickle
 from datetime import datetime
 from numbers import Number
+import click
 from botocore.exceptions import ClientError
 
-EXPIRATION_WINDOW = 2    #seconds
+#---------------------CONFIG-----------------------------
+
+# Override these next 2 functions to change the title/subtitle in the instance list
+#<instance> is a boto3 Instance object <http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#instance>
+def instance_title(instance):
+  """Given an instance, returns the title of the list item as a string"""
+  tags = {t['Key']: t['Value'] for t in instance.tags} if getattr(instance, 'tags', None) else {}
+  return ' '.join([
+    tags.get('Name', ''),
+    tags.get('aws:autoscaling:groupName', ''),
+  ])
+
+
+def instance_subtitle(instance):
+  """Given an instance, returns the subtitle of the list item as a string"""
+  return ' '.join([
+    instance.id,
+    instance.instance_type,
+    getattr(instance, 'private_ip_address', None) or getattr(instance, 'public_ip_address', None) or '',
+    instance.state['Name'],
+  ])
+
 CACHE_DIR = 'caches'
 CREDS_CACHE_FILE = os.path.join(CACHE_DIR, "creds.cache")
+CREDS_CACHE_EXPIRATION_WINDOW = 2    #seconds
 CONFIG_CACHE_FILE = os.path.join(CACHE_DIR, "boto-config.cache")
 INSTANCES_CACHE_EXT = "aws-instances.cache"
 INSTANCES_CACHE_MAX_AGE = 40    #seconds
+
+#--------------------------------------------------------
 
 @click.group()
 def cli():
@@ -60,7 +85,7 @@ def check_profile(profile):
   creds_cache = get_creds_cache(profile)
 
   now = time.time()
-  if creds_cache is None or creds_cache['expires'] - EXPIRATION_WINDOW <= now:
+  if creds_cache is None or creds_cache['expires'] - CREDS_CACHE_EXPIRATION_WINDOW <= now:
     sys.exit(1) #Creds are expired, prompt user for MFA
 
   sys.exit(0) #Creds are still valid, move along
@@ -218,23 +243,6 @@ def get_instances(profile, temp_creds):
       return pickle.load(f)
 
 
-def instance_title(instance):
-  tags = {t['Key']: t['Value'] for t in instance.tags} if getattr(instance, 'tags', None) else {}
-  return ' '.join([
-    tags.get('Name', ''),
-    tags.get('aws:autoscaling:groupName', ''),
-  ])
-
-
-def instance_subtitle(instance):
-  return ' '.join([
-    instance.id,
-    instance.instance_type,
-    getattr(instance, 'private_ip_address', None) or getattr(instance, 'public_ip_address', None) or '',
-    instance.state['Name'],
-  ])
-
-
 def extract_output_fields(instance):
   output_fields = [
     {'prop': 'id',                 'desc': 'Instance ID'},
@@ -279,7 +287,8 @@ def filter_output_fields(spec, query):
   click.echo(json.dumps(results))
 
 
-######## Shared helper functions ########
+#--------------- Shared helper functions-----------------
+
 def get_creds_cache(profile):
   """Return the creds cache for a particular profile"""
   if os.path.exists(CREDS_CACHE_FILE):
@@ -344,7 +353,3 @@ class SerializableInstance(object):
 
 if __name__ == '__main__':
   cli()
-
-#TODO:
-# - parameterize details (e.g. title/subtitle fields)
-# - add fuzzy matching
