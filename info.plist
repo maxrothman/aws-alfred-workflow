@@ -292,14 +292,6 @@
 			<integer>1</integer>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.junction</string>
-			<key>uid</key>
-			<string>E18113BA-518D-4D37-A75A-A37155C55495</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
 			<key>config</key>
 			<dict>
 				<key>inputstring</key>
@@ -315,6 +307,14 @@
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
 			<string>189C0B43-6E52-46E8-AD86-64D1CD1C21D0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>E18113BA-518D-4D37-A75A-A37155C55495</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -362,23 +362,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>F810721F-E252-454D-914E-5928E3738669</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -397,6 +380,23 @@ echo $?</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>5A7232DF-DA83-49DC-A7D9-D2D0A004E3DF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>F810721F-E252-454D-914E-5928E3738669</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -459,6 +459,29 @@ echo $?</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>echo -n '{query}' &gt; caches/last-output.cache</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>04C0B3B7-C39D-49DF-A47B-7BD992788E42</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>argumenttype</key>
@@ -502,12 +525,46 @@ echo $?</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>inputstring</key>
+				<string></string>
+				<key>matchcasesensitive</key>
+				<false/>
+				<key>matchmode</key>
+				<integer>2</integer>
+				<key>matchstring</key>
+				<string>1</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>C537E912-1A5C-498F-BF80-680759E20F23</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>CFB54447-EBF3-46AD-820F-37111215A43A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo -n '{query}' &gt; caches/last-output.cache</string>
+				<string>echo -n '{query}' &gt; caches/last-profile.cache</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -518,7 +575,7 @@ echo $?</string>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>04C0B3B7-C39D-49DF-A47B-7BD992788E42</string>
+			<string>7AAD4267-AB0E-4066-9E3C-E82750829310</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -564,63 +621,6 @@ echo $?</string>
 			<string>F066C7EB-E38C-4F2F-B265-FD64397C2E7C</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>CFB54447-EBF3-46AD-820F-37111215A43A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>echo -n '{query}' &gt; caches/last-profile.cache</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>7AAD4267-AB0E-4066-9E3C-E82750829310</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>inputstring</key>
-				<string></string>
-				<key>matchcasesensitive</key>
-				<false/>
-				<key>matchmode</key>
-				<integer>2</integer>
-				<key>matchstring</key>
-				<string>1</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
-			<key>uid</key>
-			<string>C537E912-1A5C-498F-BF80-680759E20F23</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -768,7 +768,31 @@ EOF</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>#AWS Alfred Workflow
+Search for EC2 instances
+
+Supports multiple accounts, mutifactor authentication, and cross-account "assume_role" authentication
+
+##Usage:
+
+This workflow contains several entry points:
+
+###aws
+The main entry point for the workflow. It will prompt you to select a profile, prompt you for an MFA token if necessary, and give you a list of instances to filter.
+
+By default, when selecting an instance, its private IP address is copied to the clipboard. By holding shift, you will be prompted to select a different output field.
+
+You can find details about configuring profiles in the [Boto documentation](http://boto3.readthedocs.io/en/latest/guide/quickstart.html#configuration).
+
+###lastaws
+Skips the profile selection and uses the last selected profile. The rest of the workflow acts as described above.
+
+###outputaws
+Re-opens the output field selection list using the last-selected instance. This can be used to add multiple attributes about an instance to the clipboard.
+
+
+##Modifying
+You can modify the default output field and the instance attributes in the title/subtitle of the instance list by modifying config values at the top of `aws.py`.</string>
 	<key>uidata</key>
 	<dict>
 		<key>04C0B3B7-C39D-49DF-A47B-7BD992788E42</key>
@@ -933,6 +957,8 @@ EOF</string>
 			<integer>270</integer>
 		</dict>
 	</dict>
+	<key>version</key>
+	<string>2.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/maxrothman/aws-alfred-workflow</string>
 </dict>

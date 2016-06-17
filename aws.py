@@ -30,6 +30,7 @@ def instance_subtitle(instance):
     instance.state['Name'],
   ])
 
+DEFAULT_OUTPUT_FIELD = 'private_ip_address'
 CACHE_DIR = 'caches'
 CREDS_CACHE_FILE = os.path.join(CACHE_DIR, "creds.cache")
 CREDS_CACHE_EXPIRATION_WINDOW = 2    #seconds
@@ -203,8 +204,8 @@ def search_for_instances(profile, query):
       }
 
       # If the instance doesn't have a private IP address, the only valid action is "More options"
-      arg = ({'arg': instance.private_ip_address} 
-        if getattr(instance, 'private_ip_address', False) 
+      arg = ({'arg': getattr(instance, DEFAULT_OUTPUT_FIELD)} 
+        if hasattr(instance, DEFAULT_OUTPUT_FIELD, False) 
         else {'valid': False})
       entry.update(arg)
 
