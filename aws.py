@@ -205,7 +205,7 @@ def search_for_instances(profile, query):
 
       # If the instance doesn't have a private IP address, the only valid action is "More options"
       arg = ({'arg': getattr(instance, DEFAULT_OUTPUT_FIELD)} 
-        if hasattr(instance, DEFAULT_OUTPUT_FIELD, False) 
+        if hasattr(instance, DEFAULT_OUTPUT_FIELD)
         else {'valid': False})
       entry.update(arg)
 
