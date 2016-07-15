@@ -464,7 +464,7 @@ echo $?</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo -n '{query}' &gt; caches/last-output.cache</string>
+				<string>echo -n "{query}" &gt; caches/last-output.cache</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -958,7 +958,7 @@ You can modify the default output field and the instance attributes in the title
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>2.0</string>
+	<string>2.0.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/maxrothman/aws-alfred-workflow</string>
 </dict>
