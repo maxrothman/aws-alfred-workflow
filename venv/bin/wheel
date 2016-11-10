@@ -1,0 +1,11 @@
+#!/Users/max/config/Alfred.alfredpreferences/workflows/user.workflow.2ABD1F44-3E66-4B62-90ED-B0235F9DC510/venv/bin/python2.7
+
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+from wheel.tool import main
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
